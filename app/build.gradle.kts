@@ -1,0 +1,84 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id ("kotlin-parcelize")
+    id ("dagger.hilt.android.plugin")
+    id ("androidx.navigation.safeargs.kotlin")
+}
+
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+android {
+    namespace = "com.example.muvies"
+    compileSdk = AndroidSdk.compile
+
+    defaultConfig {
+        applicationId = "com.example.muvies"
+        minSdk = AndroidSdk.min
+        targetSdk = AndroidSdk.target
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+dependencies {
+
+    implementation(Libraries.appCompat)
+    implementation(Libraries.ktxCore)
+    implementation(Libraries.material)
+    implementation(Libraries.kotlinStdLib)
+    kapt(Libraries.codegen)
+    implementation(Libraries.coreKtx)
+
+    implementation(Libraries.fragment)
+    implementation(Libraries.fragmentNavigation)
+    implementation(Libraries.hilt)
+    implementation(Libraries.moshi)
+    implementation (Libraries.navigation)
+    implementation(Libraries.okHttp3)
+    implementation(Libraries.okHttp3Logging)
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitMoshiConverter)
+    kapt(Libraries.roomCompiler)
+    implementation(Libraries.roomKtx)
+    implementation(Libraries.roomRuntime)
+    implementation(Libraries.rxAndroid)
+    implementation(Libraries.rxjava)
+    implementation(Libraries.rxJavaAdapter)
+    implementation(Libraries.timber)
+    implementation(Libraries.lifecycleRuntimeKtx)
+    implementation(Libraries.lifecycleLiveDataKtx)
+    implementation(Libraries.lifecycleViewModelKtx)
+    kapt(Libraries.hiltAndroidCompiler)
+    testImplementation(TestLibraries.junit4)
+    androidTestImplementation(TestLibraries.junitExt)
+    androidTestImplementation(TestLibraries.espresso)
+}
