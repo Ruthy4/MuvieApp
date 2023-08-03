@@ -52,6 +52,10 @@ android {
             excludes.add("/META-INF/{AL2.0,LGPL2.1}")
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
+
 }
 
 dependencies {
@@ -60,9 +64,9 @@ dependencies {
     implementation(Libraries.ktxCore)
     implementation(Libraries.material)
     implementation(Libraries.kotlinStdLib)
+    implementation(Libraries.coil)
     kapt(Libraries.codegen)
     implementation(Libraries.coreKtx)
-
     implementation(Libraries.fragment)
     implementation(Libraries.fragmentNavigation)
     implementation(Libraries.hilt)

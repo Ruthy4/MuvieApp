@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Muvies</string>
+    <string name="find_movies_tv_series_nand_more">Find Movies, Tv Series, \nand more</string>
+    <string name="sherlock_holmes">Sherlock Holmes</string>
+    <string name="search_image">search image</string>
+    <string name="movie_image">movie image</string>
+    <string name="movie_title">%s (%d)</string>
+    <string name="star_wars_t">Star Wars: The Last Jedi</string>
+    <string name="release_date_title">Release date</string>
+    <string name="release_date">December 9, 2017</string>
+    <string name="runtime">%d minutes</string>
+    <string name="rating">%s (IMDb)</string>
+    <string name="genre">Genre</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="synopsis_text">Rey (Daisy Ridley) finally manages to find the legendary Jedi knight, Luke Skywalker (Mark Hamill) on an island with a magical aura. The heroes of The Force Awakens including Leia, Finn</string>
+    <string name="action">action</string>
+    <string name="_150_minutes">150 minutes</string>
+    <string name="_7_0_imdb">7.0 (IMDb)</string>
+    <string name="favourites">Favourites</string>
+    <string name="_4_8">4.8</string>
+    <string name="favourite_image">favourite image</string>
 </resources>
