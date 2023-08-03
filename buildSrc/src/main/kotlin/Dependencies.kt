@@ -56,6 +56,7 @@ object AndroidSdk {
 
 object Libraries {
     const val appCompat             = "androidx.appcompat:appcompat:${Versions.appCompact_version}"
+    const val coil                   = "io.coil-kt:coil-compose:${Versions.coil_version}"
     const val codegen          = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.codegen_version}"
     const val coreKtx           = "androidx.core:core-ktx:${Versions.core_version}"
     const val fragment            = "androidx.fragment:fragment-ktx:${Versions.fragment_version}"
