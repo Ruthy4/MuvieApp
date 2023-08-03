@@ -21,4 +21,5 @@ data class Movie(
     val video: Boolean? = false,
     val vote_average: Double? = null,
     val vote_count: Int? = 0,
+    var isFavorite: Boolean = false,
 )

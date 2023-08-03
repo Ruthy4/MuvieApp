@@ -3,6 +3,7 @@ package com.example.muvies.di
 import android.content.Context
 import androidx.room.Room
 import com.example.muvies.data.local.MovieDatabase
+import com.example.muvies.data.local.dao.FavoriteMoviesDao
 import com.example.muvies.data.local.dao.MovieDao
 import com.example.muvies.utils.Constants.DATABASE_NAME
 import dagger.Module
@@ -28,4 +29,9 @@ object LocalModule {
     @Singleton
     @Provides
     fun provideMovieDao(movieDatabase: MovieDatabase): MovieDao = movieDatabase.movieDao()
+
+    @Singleton
+    @Provides
+    fun provideFavouriteDao(movieDatabase: MovieDatabase): FavoriteMoviesDao =
+        movieDatabase.favoriteMoviesDao()
 }
