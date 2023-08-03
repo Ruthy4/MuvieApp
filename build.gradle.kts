@@ -1,4 +1,3 @@
-
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript{
@@ -17,25 +16,20 @@ plugins {
     id ("com.android.application") version "7.4.0" apply false
     id ("com.android.library") version "7.4.0" apply false
     id ("org.jetbrains.kotlin.android") version "1.7.21" apply false
-    id("com.diffplug.spotless") version "5.0.0"
-}
-subprojects {
-    afterEvaluate {
-        project.apply("../spotless.gradle")
-    }
+    id("com.diffplug.spotless") version "6.12.0"
 }
 
-allprojects {
+
+subprojects {
     apply(plugin = "com.diffplug.spotless")
 
     spotless {
         kotlin {
             target("**/*.kt")
-            ktlint(Versions.ktlint_version)
-        }
-        kotlinGradle {
-            target("*.gradle.kts", "additionalScripts/*.gradle.kts")
-            ktlint(Versions.ktlint_version)
+            targetExclude("$buildDir/**/*.kt")
+            targetExclude("bin/**/*.kt")
+
+            ktlint(Versions.ktlintVersion).userData(mapOf("disabled_rules" to "no-wildcard-imports"))
         }
     }
 }

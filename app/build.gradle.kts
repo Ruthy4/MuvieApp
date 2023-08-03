@@ -5,9 +5,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id ("kotlin-parcelize")
-    id ("dagger.hilt.android.plugin")
-    id ("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
+    id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -25,8 +25,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"    }
 
     buildTypes {
         getByName("release") {
@@ -47,6 +46,11 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    packagingOptions {
+        resources {
+            excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+        }
+    }
 }
 
 dependencies {
@@ -62,7 +66,7 @@ dependencies {
     implementation(Libraries.fragmentNavigation)
     implementation(Libraries.hilt)
     implementation(Libraries.moshi)
-    implementation (Libraries.navigation)
+    implementation(Libraries.navigation)
     implementation(Libraries.okHttp3)
     implementation(Libraries.okHttp3Logging)
     implementation(Libraries.retrofit)
@@ -78,7 +82,17 @@ dependencies {
     implementation(Libraries.lifecycleLiveDataKtx)
     implementation(Libraries.lifecycleViewModelKtx)
     kapt(Libraries.hiltAndroidCompiler)
-    testImplementation(TestLibraries.junit4)
-    androidTestImplementation(TestLibraries.junitExt)
-    androidTestImplementation(TestLibraries.espresso)
+
+    androidTestImplementation(TestLibraries.espressoCore)
+    androidTestImplementation(TestLibraries.junit)
+    androidTestImplementation(TestLibraries.testExtJunit)
+
+    testImplementation(TestLibraries.androidCore)
+    testImplementation(TestLibraries.androidTestRunner)
+    testImplementation(TestLibraries.coroutines)
+    testImplementation(TestLibraries.junit)
+    testImplementation(TestLibraries.mockito)
+    testImplementation(TestLibraries.mockitoKotlin)
+    testImplementation(TestLibraries.roboelectric)
+    testImplementation(TestLibraries.testExtJunit)
 }

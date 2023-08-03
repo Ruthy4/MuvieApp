@@ -37,7 +37,7 @@ object Versions {
     const val testRunner = "1.1.0-alpha4"
     const val espresso = "3.1.0-alpha4"
     const val buildToolsVersion = "7.4.0"
-    const val ktlintVersion = "0.45.2"
+    const val ktlintVersion = "0.48.1"
 }
 
 object BuildPlugins {
@@ -84,8 +84,14 @@ object Libraries {
 }
 
 object TestLibraries {
-    const val junit4     = "junit:junit:${Versions.junit4}"
-    const val testRunner = "androidx.test:runner:${Versions.testRunner}"
-    const val espresso   = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-    const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
+    const val androidCore          = "androidx.arch.core:core-testing:${Versions.android_core_version}"
+    const val androidTestRunner    = "androidx.test:runner:${Versions.android_runner_version}"
+    const val coroutines           = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines_version}"
+    const val espressoCore         = "androidx.test.espresso:espresso-core:${Versions.espresso_core_version}"
+    const val junit                = "junit:junit:${Versions.junit_version}"
+    const val mockito              = "org.mockito:mockito-core:${Versions.mockito_version}"
+    const val mockitoKotlin        = "org.mockito.kotlin:mockito-kotlin:${Versions.mockito_kotlin_version}"
+    const val roboelectric         = "org.robolectric:robolectric:${Versions.roboelectric_version}"
+    const val testExtJunit         = "androidx.test.ext:junit:${Versions.test_ext_junit_version}"
+
 }
