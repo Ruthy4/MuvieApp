@@ -19,6 +19,7 @@ data class MovieData(
     val video: Boolean? = false,
     val vote_average: Double? = null,
     val vote_count: Int? = 0,
+    var isFavorite: Boolean = false,
 ) : Parcelable {
     companion object {
         fun from(movies: List<Movie>): List<MovieData> {
@@ -37,8 +38,28 @@ data class MovieData(
                     video = it.video,
                     vote_average = it.vote_average,
                     vote_count = it.vote_count,
+                    isFavorite = it.isFavorite,
                 )
             }
+        }
+
+        fun toMovie(movieData: MovieData): Movie {
+            return Movie(
+                id = movieData.id,
+                title = movieData.title,
+                adult = movieData.adult,
+                backdrop_path = movieData.backdrop_path,
+                original_language = movieData.original_language,
+                original_title = movieData.original_title,
+                overview = movieData.overview,
+                popularity = movieData.popularity,
+                poster_path = movieData.poster_path,
+                release_date = movieData.release_date,
+                video = movieData.video,
+                vote_average = movieData.vote_average,
+                vote_count = movieData.vote_count,
+                isFavorite = movieData.isFavorite,
+            )
         }
     }
 }

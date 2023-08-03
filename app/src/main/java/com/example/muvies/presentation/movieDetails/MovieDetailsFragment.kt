@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.muvies.R
+import com.example.muvies.data.local.MovieData
 import com.example.muvies.databinding.FragmentMovieDetailsBinding
 import com.example.muvies.utils.Constants.poster_url
 import com.example.muvies.utils.Resource
@@ -40,6 +41,7 @@ class MovieDetailsFragment : Fragment() {
         val movieData = args.movieData
 
         movieData.id?.let { fetchMovieDetail(movieId = it) }
+        movieDetailViewModel.checkIfFavorite(movieData)
 
         with(binding) {
             detailsTitleTv.text = movieData.title
@@ -51,6 +53,11 @@ class MovieDetailsFragment : Fragment() {
             navigateBackArrow.setOnClickListener { findNavController().popBackStack() }
         }
         observeDetailResponse()
+
+        binding.favouriteIv.setOnClickListener {
+            addFavouriteMovie(args.movieData)
+        }
+        observeFavoriteMovie()
     }
 
     private fun fetchMovieDetail(movieId: Int) {
@@ -78,5 +85,31 @@ class MovieDetailsFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun observeFavoriteMovie() {
+        val isMovieFav = movieDetailViewModel.isFavorite.value
+        if (isMovieFav == true) {
+            binding.favouriteIv.setImageResource(R.drawable.favorite_filled)
+        } else {
+            binding.favouriteIv.setImageResource(R.drawable.favorite_border)
+        }
+    }
+    private fun addFavouriteMovie(movieData: MovieData) {
+        val isMovieFavorite = movieDetailViewModel.checkIfFavorite(movieData)
+        if (!isMovieFavorite) {
+            val movie = movieData.copy(isFavorite = true)
+            binding.favouriteIv.setImageResource(R.drawable.favorite_filled)
+            movieDetailViewModel.checkIfFavoriteOrNot(movie, true)
+        } else {
+            val movie = movieData.copy(isFavorite = false)
+            movieDetailViewModel.checkIfFavoriteOrNot(movie, false)
+            binding.favouriteIv.setImageResource(R.drawable.favorite_border)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

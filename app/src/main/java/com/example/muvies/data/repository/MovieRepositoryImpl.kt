@@ -3,6 +3,7 @@ package com.example.muvies.data.repository
 import com.example.muvies.data.ApiService
 import com.example.muvies.data.local.MovieData
 import com.example.muvies.data.local.MovieDetailData
+import com.example.muvies.data.local.dao.FavoriteMoviesDao
 import com.example.muvies.data.local.dao.MovieDao
 import com.example.muvies.domain.repository.MovieRepository
 import io.reactivex.Observable
@@ -12,6 +13,7 @@ import io.reactivex.schedulers.Schedulers
 class MovieRepositoryImpl(
     private val apiService: ApiService,
     private val movieDao: MovieDao,
+    private val favoriteMoviesDao: FavoriteMoviesDao,
 ) : MovieRepository {
     override fun getMovieList(): Observable<List<MovieData>> {
         val localData = movieDao.getMovies()
@@ -42,5 +44,26 @@ class MovieRepositoryImpl(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
         return remoteObservable
+    }
+
+    override fun saveFavouriteMovie(movieData: MovieData) {
+        val movie = MovieData.toMovie(movieData)
+        val isFavorite = isFavouriteMovie(movie.title.toString())
+        if (!isFavorite) {
+            favoriteMoviesDao.saveFavorite(movie)
+        }
+    }
+
+    override fun removeFavouriteMovie(movieData: MovieData) {
+        favoriteMoviesDao.removeFavorite(MovieData.toMovie(movieData).title.toString())
+    }
+
+    override fun getFavouriteMovie(): Observable<List<MovieData>> {
+        val favMovieList = favoriteMoviesDao.getFavoriteMovies()
+        return Observable.just(MovieData.from(favMovieList))
+    }
+
+    override fun isFavouriteMovie(movieTitle: String): Boolean {
+        return favoriteMoviesDao.isFavouriteMovie(movieTitle)
     }
 }

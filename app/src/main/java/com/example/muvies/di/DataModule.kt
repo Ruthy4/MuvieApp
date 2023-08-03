@@ -1,6 +1,7 @@
 package com.example.muvies.di
 
 import com.example.muvies.data.ApiService
+import com.example.muvies.data.local.dao.FavoriteMoviesDao
 import com.example.muvies.data.local.dao.MovieDao
 import com.example.muvies.data.repository.MovieRepositoryImpl
 import com.example.muvies.domain.repository.MovieRepository
@@ -19,7 +20,8 @@ object DataModule {
     fun provideRepository(
         apiService: ApiService,
         movieDao: MovieDao,
+        favoriteMoviesDao: FavoriteMoviesDao,
     ): MovieRepository {
-        return MovieRepositoryImpl(apiService, movieDao)
+        return MovieRepositoryImpl(apiService, movieDao, favoriteMoviesDao)
     }
 }
