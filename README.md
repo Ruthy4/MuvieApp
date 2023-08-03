@@ -8,10 +8,18 @@ In the `local.properties` file in your project-level directory, add the followin
 
 
 # Screenshots
-<img width="359" alt="image" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/6a626088-4e90-46f7-b3a7-f4f582c0d001">
-<img width="356" alt="image" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/d22f75d9-ac0b-44e3-b7c9-0c31eec8585e">
-<img width="356" alt="image" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/7918730e-2d37-4678-aea9-d4d1aa879a16">
-<img width="358" alt="image" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/d0eeae24-0b64-4892-9124-b4d13cacb7a7">
+<img width="355" alt="Screenshot 2023-08-03 at 13 28 00" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/cb59a82a-f2c7-47ea-ab75-13e51ce7afd6">
+
+<img width="351" alt="Screenshot 2023-08-03 at 13 32 43" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/9199d728-42db-49dc-a276-5c6ffbeb44f3">
+
+<img width="362" alt="Screenshot 2023-08-03 at 13 00 18" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/2067ca0c-e466-4c69-834c-f7839954a5fc">
+
+<img width="345" alt="Screenshot 2023-08-03 at 13 28 10" src="https://github.com/Ruthy4/MuvieApp/assets/33810711/ddcfbc5b-f55b-4520-b185-475e94f3e32f">
+
+
+
+
+
 
 # Features
 
