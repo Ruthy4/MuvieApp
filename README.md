@@ -49,7 +49,11 @@ In the `local.properties` file in your project-level directory, add the followin
 
 - [Android Architecture components](https://developer.android.com/topic/libraries/architecture) ([ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel), [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation))
 
-
+- Testing
+    * [Unit Tests](https://en.wikipedia.org/wiki/Unit_testing) ([JUnit 5](https://junit.org/junit5/) via
+    [android-junit5](https://github.com/mannodermaus/android-junit5))
+    * [UT Tests](https://en.wikipedia.org/wiki/Graphical_user_interface_testing) ([Espresso](https://developer.android.com/training/testing/espresso))
+    * [Mockito](https://site.mockito.org/) - mocking framework
 
 
 
