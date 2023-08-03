@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.muvies.databinding.FragmentMovieBinding
 import com.example.muvies.utils.Resource
 import com.example.muvies.utils.hideView
@@ -31,7 +32,10 @@ class MovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        movieRecyclerAdapter = MovieRecyclerAdapter {}
+        movieRecyclerAdapter = MovieRecyclerAdapter {
+            val action = MovieFragmentDirections.actionMovieFragmentToMovieDetailsFragment2(it)
+            findNavController().navigate(action)
+        }
 
         movieViewModel.movieListLiveData.observe(viewLifecycleOwner) { resource ->
             when (resource) {
