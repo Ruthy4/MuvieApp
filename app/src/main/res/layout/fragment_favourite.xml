@@ -46,4 +46,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/empty_state_layout"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/empty_state_iv"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/empty_state"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_favourite_movies_found"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_24sp"
+            app:layout_constraintTop_toBottomOf="@id/empty_state_iv"
+            app:layout_constraintStart_toStartOf="@id/empty_state_iv"
+            app:layout_constraintEnd_toEndOf="@id/empty_state_iv"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

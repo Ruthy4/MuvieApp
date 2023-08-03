@@ -50,9 +50,19 @@ class FavouriteFragment : Fragment() {
                     binding.progressIndicator.showView()
                 }
                 is Resource.Success -> {
-                    binding.progressIndicator.hideView()
-                    binding.favRecyclerView.adapter = favouriteMovieRecyclerAdapter
-                    favouriteMovieRecyclerAdapter.submitList(resource.data)
+                    val favouriteMovieList = resource.data
+                    binding.apply {
+                        progressIndicator.hideView()
+                        if (favouriteMovieList?.isEmpty() == true) {
+                            emptyStateLayout.showView()
+                            favRecyclerView.hideView()
+                        } else {
+                            favRecyclerView.showView()
+                            emptyStateLayout.hideView()
+                        }
+                        favRecyclerView.adapter = favouriteMovieRecyclerAdapter
+                        favouriteMovieRecyclerAdapter.submitList(resource.data)
+                    }
                 }
                 is Resource.Error -> {
                     binding.progressIndicator.hideView()
