@@ -36,7 +36,7 @@ data class MovieData(
                     release_date = it.release_date,
                     video = it.video,
                     vote_average = it.vote_average,
-                    vote_count = it.vote_count
+                    vote_count = it.vote_count,
                 )
             }
         }

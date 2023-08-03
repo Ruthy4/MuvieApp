@@ -8,7 +8,7 @@ import com.example.muvies.data.remote.dto.Movie
 @Database(
     entities = [Movie::class],
     version = 1,
-    exportSchema = false
+    exportSchema = false,
 )
 abstract class MovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao

@@ -7,5 +7,4 @@ import retrofit2.http.GET
 interface ApiService {
     @GET("discover/movie")
     fun getMovieList(): Observable<MovieResponse>
-
 }

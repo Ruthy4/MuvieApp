@@ -1,6 +1,10 @@
 package com.example.muvies.data.local.dao
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
 import com.example.muvies.data.remote.dto.Movie
 
 @Dao
@@ -21,5 +25,5 @@ interface MovieDao {
     fun deleteMovie(id: Int)
 
     @Query("DELETE FROM movie")
-    fun clearAllMovies() // TODO unit tests
+    fun clearAllMovies()
 }

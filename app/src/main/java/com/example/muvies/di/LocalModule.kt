@@ -28,5 +28,4 @@ object LocalModule {
     @Singleton
     @Provides
     fun provideMovieDao(movieDatabase: MovieDatabase): MovieDao = movieDatabase.movieDao()
-
 }
